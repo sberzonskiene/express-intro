@@ -29,7 +29,7 @@ export class PageTemplate {
     }
 
     main () {
-        return ``
+        return `CONTENT`
     }
 
     render() {

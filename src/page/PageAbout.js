@@ -12,5 +12,4 @@ export class PageAbout extends PageTemplate {
             <p>Lorem ipsum dolor sit amet consectetur.</p>
             <ul>${linksHTML}</ul>`;
     }
-
 }
