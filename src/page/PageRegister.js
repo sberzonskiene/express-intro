@@ -3,7 +3,7 @@ import { PageTemplate } from "../template/PageTemplate.js";
 export class PageRegister extends PageTemplate {
     main() {
         return `
-        <h1>Registracija</h1>
+        <h1>Register</h1>
             <form id="registerForm">
                 <label for="username">Vartotojo vardas:</label>
                 <input type="text" id="username" name="username" required>
