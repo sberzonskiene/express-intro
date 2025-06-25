@@ -13,7 +13,9 @@ export class PageTemplate {
     header() {
         return `
         <header>
-            <img src="./img/logo.jpg" alt="Logo">
+            <a href="/">
+                <img class="logo" src="/img/logo.webp" alt="Logo">
+            </a>
             <nav>
                 <a href="/">Home</a>
                 <a href="/about">About</a>
