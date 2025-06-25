@@ -2,6 +2,7 @@ export class PageTemplate {
     constructor() {
         this.pageType = 'fullPage';
         this.isAsideVisible = true;
+        this.pageJS = '';
     }
 
     head () {
@@ -10,6 +11,7 @@ export class PageTemplate {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Express intro</title>
+            <link rel="stylesheet" href="/css/main.css">
         </head> `;
     }
 
@@ -61,12 +63,19 @@ export class PageTemplate {
         </footer> `;
     }
 
+    script() {
+        if (!this.pageJS) {
+            return '';
+        }
+        return `<script src="/js/${this.pageJS}.js" type="module"></script>`;
+    }
+
     aside() {
         return `<aside>SONINIS MENIU</aside>`;
     }
 
     main () {
-        return `CONTENT`
+        return `CONTENT`;
     }
 
     render() {
@@ -78,7 +87,8 @@ export class PageTemplate {
             ${this.pageType === 'fullPage' ? this.header() : this.headerAuth()}
             ${this.isAsideVisible ? this.aside() : ''}
             <main>${this.main()}</main>
-            ${this.pageType === 'fullPage' ? this.footer() : this.footerAuth()}  
+            ${this.pageType === 'fullPage' ? this.footer() : this.footerAuth()}
+            ${this.script()}  
         </body>
     </html> `;
     }
