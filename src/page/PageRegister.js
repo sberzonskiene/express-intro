@@ -1,6 +1,11 @@
 import { PageTemplate } from "../template/PageTemplate.js";
 
 export class PageRegister extends PageTemplate {
+    constructor () {
+        super();
+        this.pageType = 'shortPage';
+        this.isAsideVisible = false;
+    }
     main() {
         return `
         <h1>Register</h1>

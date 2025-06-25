@@ -1,6 +1,11 @@
 import { PageTemplate } from "../template/PageTemplate.js";
 
 export class Page404 extends PageTemplate {
+    constructor() {
+        super();
+        this.pageType = 'shortPage';
+        this.isAsideVisible = false;
+    }
     main() {
         return `
         <h1>Page 404</h1>
