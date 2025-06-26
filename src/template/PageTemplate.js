@@ -1,5 +1,6 @@
 export class PageTemplate {
-    constructor() {
+    constructor(req) {
+        this.req = req;
         this.pageType = 'fullPage';
         this.isAsideVisible = true;
         this.pageJS = '';
@@ -11,16 +12,19 @@ export class PageTemplate {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Express intro</title>
+            <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+            <link rel="manifest" href="/manifest.json">
+            <meta name="msapplication-TileColor" content="#ffffff">
+            <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
             <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/vendor/font-awesome.min.css"/>
         </head> `;
     }
 
     header() {
         return `
         <header>
-            <a href="/">
-                <img class="logo" src="/img/logo.webp" alt="Logo">
-            </a>
+                <img src="/img/logo.jpg" alt="logo">
             <nav>
                 <a href="/">Home</a>
                 <a href="/about">About</a>
@@ -33,9 +37,7 @@ export class PageTemplate {
     headerAuth() {
         return `
         <header>
-            <a href="/">
-                <img class="logo" src="/img/logo.webp" alt="Logo">
-            </a>
+                <img src="/img/logo.jpg" alt="logo">
             <nav>
                 <a href="/register">Register</a>
                 <a href="/login">Login</a>
