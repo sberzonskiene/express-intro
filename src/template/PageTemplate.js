@@ -28,6 +28,7 @@ export class PageTemplate {
             <nav>
                 <a href="/">Home</a>
                 <a href="/about">About</a>
+                <a href="/services">Services</a>
                 <a href="/register">Register</a>
                 <a href="/login">Login</a>
             </nav>
@@ -49,12 +50,14 @@ export class PageTemplate {
         return `
         <footer>
             <p>Pagaminta Lietuvoje &copy; 2025m.</p>
-            <nav>
-                <a href="/">Home</a>
-                <a href="/about">About</a>
-                <a href="/register">Register</a>
-                <a href="/login">Login</a>
-            </nav>
+            <div class="col-12 col-md-6 col-lg-2">
+                        <p>Quick links</p>
+                        <a class="fa fa-facebook" aria-hidden="true"></a>
+                        <a class="fa fa-dribbble" aria-hidden="true"></a>
+                        <a class="fa fa-twitter" aria-hidden="true"></a>
+                        <a class="fa fa-instagram" aria-hidden="true"></a>
+                        <a class="fa fa-linkedin" aria-hidden="true"></a>
+            </div>
         </footer> `;
     }
 
