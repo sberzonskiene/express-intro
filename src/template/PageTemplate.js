@@ -12,10 +12,6 @@ export class PageTemplate {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Express intro</title>
-            <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
-            <link rel="manifest" href="/manifest.json">
-            <meta name="msapplication-TileColor" content="#ffffff">
-            <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
             <link rel="stylesheet" href="/css/main.css">
             <link rel="stylesheet" href="/css/vendor/font-awesome.min.css"/>
         </head> `;
