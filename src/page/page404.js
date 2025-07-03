@@ -8,7 +8,7 @@ export class Page404 extends PageTemplate {
     }
     main() {
         return `
-        <h1><i class="fa fa-frown-o"></i>Page 404</h1>fa-frown-o
+        <h1><i class="fa fa-frown-o"></i>Page 404</h1>
         <p>Page "${this.req.url}" not found.</p>
         <a href="/">Back home</a><i class="fa fa-home"></i> `;
     }

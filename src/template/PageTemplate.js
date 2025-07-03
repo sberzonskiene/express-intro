@@ -17,8 +17,8 @@ export class PageTemplate {
             <link rel="shortcut icon" href="/favicon/favicon.ico" />
             <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
             <link rel="manifest" href="/site.webmanifest" />
-            <link rel="stylesheet" href="/css/main.css">
             <link rel="stylesheet" href="/css/vendor/font-awesome.min.css"/>
+            <link rel="stylesheet" href="/css/main.css">
         </head> `;
     }
 
@@ -50,15 +50,14 @@ export class PageTemplate {
     footer() {
         return `
         <footer>
-            <p>Pagaminta Lietuvoje &copy; 2025m.</p>
             <div class="col-12 col-md-6 col-lg-2">
-                        <p>Quick links</p>
-                        <a class="fa fa-facebook" aria-hidden="true"></a>
-                        <a class="fa fa-dribbble" aria-hidden="true"></a>
-                        <a class="fa fa-twitter" aria-hidden="true"></a>
-                        <a class="fa fa-instagram" aria-hidden="true"></a>
-                        <a class="fa fa-linkedin" aria-hidden="true"></a>
+                <a class="fa fa-facebook" aria-hidden="true"></a>
+                <a class="fa fa-dribbble" aria-hidden="true"></a>
+                <a class="fa fa-twitter" aria-hidden="true"></a>
+                <a class="fa fa-instagram" aria-hidden="true"></a>
+                <a class="fa fa-linkedin" aria-hidden="true"></a>
             </div>
+            <p>Pagaminta Lietuvoje &copy; 2025m.</p>
         </footer> `;
     }
 
