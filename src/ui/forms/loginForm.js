@@ -3,7 +3,7 @@ export function loginForm() {
                 <form class="form">
                     <div class="form-row">
                         <label>Username</label>
-                        <input id="username" type="text" value="" required autofocus>
+                        <input id="username" type="text" value="" required>
                     </div>
                     <div class="form-row">
                         <label>Password</label>

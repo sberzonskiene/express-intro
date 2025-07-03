@@ -6,6 +6,7 @@ export class PageRegister extends PageTemplate {
         super(req);
         this.pageType = 'shortPage';
         this.isAsideVisible = false;
+        this.pageJS = 'register';
     }
     main() {
         return `
