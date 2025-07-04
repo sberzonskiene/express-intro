@@ -13,15 +13,8 @@ if (formDOM) {
             password: passwordDOM.value,
         
         };
-         console.log(data);
-
-    
-    });
-} 
-
-
-
-/*   fetch('/api/register', {
+        
+        fetch('/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -32,4 +25,9 @@ if (formDOM) {
             .then(data => {
              console.log(data);
             })
-            .catch(console.error);*/
+            .catch(console.error);
+    });
+} 
+
+
+
