@@ -13,9 +13,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-width: 25rem;
-  margin-top: 2rem;
-  font-size: 2rem;
+  max-width: 20rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  font-size: 1.5rem;
 }
 .form .form-row {
   display: flex;
@@ -24,11 +25,11 @@ body {
 }
 .form input,
 .form button {
-  font-size: inherit;
+  font-size: medium;
   padding: 0.2em 0.5em;
 }
 
-.info {
+/*.info {
   display: none;
   font-size: 1.3rem;
   padding: 0.5em 1em;
@@ -46,4 +47,4 @@ body {
 }
 .info.info-show {
   display: block;
-}
+}*/
