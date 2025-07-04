@@ -1,4 +1,4 @@
-/*import { connection } from "../../db.js";*/
+import { connection } from "../../db.js";
 import { IsValid } from "../../lib/isValid.js";
 export async function postRegister(req, res) {
     const [err, msg] = IsValid.fields(req.body, {

@@ -100,16 +100,4 @@ export class IsValid {
     static email(text) {
         return [false, ''];
     }
-
-    static tos(text) {
-        if (typeof text !== 'string') {
-            return [true, 'Sutikimas su taisyklemis turi buti teksto tipo.'];
-        }
-
-        if (text !== 'agree') {
-            return [true, 'Sutikimas turi buti naudojant zodi "agree".'];
-        }
-
-        return [false, ''];
-    }
 }
