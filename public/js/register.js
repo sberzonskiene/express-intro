@@ -1,4 +1,4 @@
-/*const formDOM = document.forms[0];
+const formDOM = document.forms[0];
 const usernameDOM = document.getElementById('username');
 const emailDOM = document.getElementById('email');
 const passwordDOM = document.getElementById('password');
@@ -11,9 +11,17 @@ if (formDOM) {
             username: usernameDOM.value,
             email: emailDOM.value,
             password: passwordDOM.value,
+        
         };
+         console.log(data);
 
-        fetch('/api/register', {
+    
+    });
+} 
+
+
+
+/*   fetch('/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -24,6 +32,4 @@ if (formDOM) {
             .then(data => {
              console.log(data);
             })
-            .catch(console.error);
-    });
-}*/
+            .catch(console.error);*/
