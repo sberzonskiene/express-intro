@@ -1,4 +1,11 @@
-import { connection } from "../../db.js";
+export function postRegister(req, res) {
+    return res.json({
+        status: 'success',
+        msg: 'Registration successful',
+    });
+}
+
+/*import { connection } from "../../db.js";
 import { IsValid } from "../../lib/isValid.js";
 export async function postRegister(req, res) {
     const [err, msg] = IsValid.fields(req.body, {
@@ -29,4 +36,4 @@ export async function postRegister(req, res) {
         status: 'success',
         msg: 'Sekminga registracija',
     });
-}
+}*/
