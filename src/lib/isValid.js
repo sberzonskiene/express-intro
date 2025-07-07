@@ -26,7 +26,7 @@ export class IsValid {
     static username(text) {
         const minSize = 3;
         const maxSize = 20;
-        const allowedSymbols = '0123456789abcdefghijklmnopqrstuvwxtz!@#$%^&*()_+?:{}[]ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const allowedSymbols = '0123456789abcdefghijklmnopqrstuvwxtzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
         if (typeof text !== 'string') {
             return [true, 'Slapyvardis turi buti tekstas'];
