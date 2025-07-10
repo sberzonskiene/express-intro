@@ -26,7 +26,7 @@ export class PageTemplate {
         return `
         <header>
                 <img src="/img/logo.jpg" alt="logo">
-            <nav>
+            <nav class="nv">
                 <a href="/">Home</a>
                 <a href="/about">About</a>
                 <a href="/services">Services</a>
@@ -40,7 +40,7 @@ export class PageTemplate {
         return `
         <header>
                 <img src="/img/logo.jpg" alt="logo">
-            <nav>
+            <nav class="nv">
                 <a href="/register">Register</a>
                 <a href="/login">Login</a>
             </nav>

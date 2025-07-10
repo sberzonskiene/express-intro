@@ -48,3 +48,10 @@ body {
 .info.info-show {
   display: block;
 }*/
+.nv {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+footer {
+  margin-top: 2rem;
+}
