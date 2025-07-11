@@ -1,5 +1,6 @@
 import { connection } from "../../db.js"
 import { IsValid } from "../../lib/IsValid.js";
+
 export async function postRegister(req, res) {
     const [err, msg] = IsValid.fields(req.body, {
         username: 'username',
@@ -17,8 +18,16 @@ export async function postRegister(req, res) {
     const { username, email, password } = req.body;
 
     try {
-        const sql = `SELECT * FROM users WHERE;`;
-        const [response] = await connection.execute(sql, [username, email, password]);
+        const sql = `SELECT * FROM users WHERE username = ? OR email = ?;`;
+        const [response] = await connection.execute(sql, [username, email]);
+
+        if (response.length > 0) {
+            return res.status(400).json({
+            status: 'error',
+            msg: 'Toks vartotojas jau uzregistruotas',
+        });
+    }
+
     } catch (error) {   
         console.log(error);
         return res.status(500).json({
@@ -27,9 +36,11 @@ export async function postRegister(req, res) {
         });
     }
 
+    const passwordHash = hash(password);
+
     try {
         const sql = `INSERT INTO users (username, email, password) VALUES (?, ?, ?);`;
-        const [response] = await connection.execute(sql, [username, email, password]);
+        const [response] = await connection.execute(sql, [username, email, passwordHash]);
 
         if (response.affectedRows !== 1) {
             return res.status(500).json({
