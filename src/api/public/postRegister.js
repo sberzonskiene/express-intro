@@ -17,7 +17,18 @@ export async function postRegister(req, res) {
     const { username, email, password } = req.body;
 
     try {
-        const sql = `INSERT INTO users (id, username, email, password) VALUES (?, ?, ?, ?);`;
+        const sql = `SELECT * FROM users WHERE;`;
+        const [response] = await connection.execute(sql, [username, email, password]);
+    } catch (error) {   
+        console.log(error);
+        return res.status(500).json({
+            status: 'error',
+            msg: 'Serverio klaida',
+        });
+    }
+
+    try {
+        const sql = `INSERT INTO users (username, email, password) VALUES (?, ?, ?);`;
         const [response] = await connection.execute(sql, [username, email, password]);
 
         if (response.affectedRows !== 1) {
@@ -45,4 +56,5 @@ export async function postRegister(req, res) {
         status: 'success',
         msg: 'Registration successful',
     });
-}   
+}
+ 
