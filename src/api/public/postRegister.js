@@ -1,5 +1,7 @@
 import { connection } from "../../db.js"
 import { IsValid } from "../../lib/IsValid.js";
+import { randomString } from "../../lib/randomString.js";
+import { hash } from "../../lib/hash.js";
 
 export async function postRegister(req, res) {
     const [err, msg] = IsValid.fields(req.body, {
@@ -36,11 +38,12 @@ export async function postRegister(req, res) {
         });
     }
 
-    const passwordHash = hash(password);
+    const salt = randomString(10);
+    const passwordHash = hash(password + salt);
 
     try {
-        const sql = `INSERT INTO users (username, email, password) VALUES (?, ?, ?);`;
-        const [response] = await connection.execute(sql, [username, email, passwordHash]);
+        const sql = `INSERT INTO users (username, email, salt, password_hash) VALUES (?, ?, ?, ?);`;
+        const [response] = await connection.execute(sql, [username, email, salt, passwordHash]);
 
         if (response.affectedRows !== 1) {
             return res.status(500).json({
@@ -48,12 +51,11 @@ export async function postRegister(req, res) {
                 msg: 'Serverio klaida',
             });
         }
-        console.log(response);
     } catch (error) {
         if (error.code === 'ER_DUP_ENTRY') {
         return res.status(500).json({
             status: 'error',
-            msg: 'Kartojasi irasas',
+            msg: 'Kartojasi irasas...',
         });
     }
     console.log(error);
