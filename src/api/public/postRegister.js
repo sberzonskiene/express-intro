@@ -28,14 +28,21 @@ export async function postRegister(req, res) {
         }
         console.log(response);
     } catch (error) {
-        console.log(error);
+        if (error.code === 'ER_DUP_ENTRY') {
         return res.status(500).json({
             status: 'error',
+            msg: 'Kartojasi irasas',
+        });
+    }
+    console.log(error);
+    return res.status(500).json({
+            status: 'error',
             msg: 'Serverio klaida',
-    });
-}
+        });
+    } 
+
     return res.status(201).json({
         status: 'success',
         msg: 'Registration successful',
     });
-}
+}   
