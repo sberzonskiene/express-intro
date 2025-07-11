@@ -13,5 +13,8 @@ export function loginForm() {
                         <button type="submit">Login</button>
                     </div>
                 </form>
-                    <a href="/">Back home</a><i class="fa fa-home"></i>`;
+                <div class="log">
+                    <a href="/">Back home</a><i class="fa fa-home"></i>
+                </div>
+                `;
 }
