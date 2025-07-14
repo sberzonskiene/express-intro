@@ -100,4 +100,12 @@ export class IsValid {
     static email(text) {
         return [false, ''];
     }
+
+    static nonEmptyString(text) {
+        if (typeof text !== 'string') {
+            return [true, 'Turi buti tekstas'];
+        }
+
+        return [false, ''];
+    }
 }
