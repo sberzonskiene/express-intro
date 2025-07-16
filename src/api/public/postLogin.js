@@ -3,7 +3,7 @@ import { IsValid } from "../../lib/IsValid.js";
 import { randomString } from "../../lib/randomString.js";
 import { hash } from "../../lib/hash.js";
 
-export async function postRegister(req, res) {
+export async function postLogin(req, res) {
     const [err, msg] = IsValid.fields(req.body, {
         username: 'nonEmptyString',
         password: 'password',
@@ -17,18 +17,27 @@ export async function postRegister(req, res) {
     }
 
     const { username, password } = req.body;
+    let userObj = null;
 
     try {
         const sql = `SELECT * FROM users WHERE username = ?;`;
         const [response] = await connection.execute(sql, [username]);
 
-        if (response.length > 0) {
+        if (response.length === 0 ) {
             return res.status(400).json({
-            status: 'error',
-            msg: 'Toks vartotojas jau uzregistruotas',
-        });
-    }
+                status: 'error',
+                msg: 'Username/password yra neteisingas',
+            });
+        }
 
+        if (response.length > 1 ) {
+            return res.status(500).json({
+                status: 'error',
+                msg: 'Serverio klaida',
+            });
+        }
+
+        userObj = response[0];
     } catch (error) {   
         console.log(error);
         return res.status(500).json({
@@ -41,8 +50,8 @@ export async function postRegister(req, res) {
     const passwordHash = hash(password + salt);
 
     try {
-        const sql = `INSERT INTO users (username, email, salt, password_hash) VALUES (?, ?, ?, ?);`;
-        const [response] = await connection.execute(sql, [username, email, salt, passwordHash]);
+        const sql = `INSERT INTO users (username, salt, password_hash) VALUES (?, ?, ?, ?);`;
+        const [response] = await connection.execute(sql, [username, salt, passwordHash]);
 
         if (response.affectedRows !== 1) {
             return res.status(500).json({
