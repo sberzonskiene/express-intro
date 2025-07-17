@@ -1,6 +1,5 @@
 import { connection } from "../../db.js"
 import { IsValid } from "../../lib/IsValid.js";
-import { randomString } from "../../lib/randomString.js";
 import { hash } from "../../lib/hash.js";
 
 export async function postLogin(req, res) {
@@ -46,10 +45,16 @@ export async function postLogin(req, res) {
         });
     }
 
-    const salt = randomString(10);
-    const passwordHash = hash(password + salt);
+    const hashedPassword = hash(password + userObj.salt);
 
-    try {
+    if (hashedPassword !== userObj.password_hash) {
+        return res.status(400).json({
+            status: 'error',
+            msg: 'Username/password yra neteisingas',
+        });
+    }
+
+    /*try {
         const sql = `INSERT INTO users (username, salt, password_hash) VALUES (?, ?, ?);`;
         const [response] = await connection.execute(sql, [username, salt, passwordHash]);
 
@@ -71,7 +76,7 @@ export async function postLogin(req, res) {
             status: 'error',
             msg: 'Serverio klaida',
         });
-    } 
+    } */
 
     return res.status(201).json({
         status: 'success',

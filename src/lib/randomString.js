@@ -1,5 +1,5 @@
 export function randomString(size=20) {
-    const abc = "0123456789abcdefghijklmnopqrstuvwxtzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const abc = "0123456789abcdefghiyjklmnopqrstuvwxtzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let str = '';
 
     for (let i = 0; i < size; i++) {
