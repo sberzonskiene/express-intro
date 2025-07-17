@@ -50,7 +50,7 @@ export async function postLogin(req, res) {
     const passwordHash = hash(password + salt);
 
     try {
-        const sql = `INSERT INTO users (username, salt, password_hash) VALUES (?, ?, ?, ?);`;
+        const sql = `INSERT INTO users (username, salt, password_hash) VALUES (?, ?, ?);`;
         const [response] = await connection.execute(sql, [username, salt, passwordHash]);
 
         if (response.affectedRows !== 1) {
