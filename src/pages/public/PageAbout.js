@@ -1,4 +1,4 @@
-import { PageTemplate } from "../template/PageTemplate.js";
+import { PageTemplate } from "../../template/PageTemplate.js";
 
 export class PageAbout extends PageTemplate {
     constructor(req) {
