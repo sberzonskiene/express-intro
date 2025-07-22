@@ -1,8 +1,7 @@
-import { loginTokens, users } from "../data/users.js";
+import { connection } from "../db.js";
 
-export function userData(req, res, next) {
+export async function userData(req, res, next) {
     req.user = {
-        username: '',
         isLoggedIn: false,
     };
 
@@ -10,25 +9,27 @@ export function userData(req, res, next) {
         return next();
     }
 
-    let userLoginToken = null;
+    try {
+        const sql = `
+            SELECT users.id, users.username, users.email,
+                users.created_at AS user_created_at,
+                login_tokens.created_at AS login_token_created_at
+            FROM login_tokens
+            INNER JOIN users
+                ON login_tokens.user_id = users.id
+            WHERE token = ?;`;
+        const [results] = await connection.execute(sql, [req.cookies.loginToken]);
 
-    for (const cookieTokens of loginTokens) {
-        if (cookieTokens.randomString === req.cookies.loginToken) {
-            userLoginToken = cookieTokens;
-            break;
+        if (results.length !== 1) {
+            return next();
         }
-    }
 
-    if (!userLoginToken) {
-        return next();
-    }
-
-    for (const userObj of users) {
-        if (userObj.id === userLoginToken.userId) {
-            req.user.username = userObj.username;
-            req.user.isLoggedIn = true;
-            break;
-        }
+        req.user = {
+            ...results[0],
+            isLoggedIn: true,
+        };
+    } catch (error) {
+        console.log(error);
     }
 
     return next();

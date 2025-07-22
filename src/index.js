@@ -4,6 +4,7 @@ import { publicPageRouter } from './routes/publicPageRouter.js';
 import { publicApiRouter } from './routes/publicApiRouter.js';
 import { adminPageRouter } from './routes/adminPageRouter.js';
 import { cookieParser } from './middleware/cookieParser.js';
+import { userData } from './middleware/userData.js';
 
 
 const app = express();
@@ -12,6 +13,7 @@ const port = 3030;
 app.use(express.static('public'));
 app.use(express.json());
 app.use(cookieParser);
+app.use(userData);
 
 
 app.use('/', publicPageRouter);
