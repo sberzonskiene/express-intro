@@ -8,7 +8,8 @@ export class PageDashboard extends PageTemplate {
     }
     main() {
         return `
-            <h1><i class="fa fa-dashcube"></i>Welcome to dashboard !!!<img src="/img/logo1.jpg" alt="logo1" style="max-height: 7rem"></h1>
+            <h1><i class="fa fa-dashcube"></i>Welcome to dashboard !!!</h1>
+            <p>User:---</p>
             `;
     }
 }

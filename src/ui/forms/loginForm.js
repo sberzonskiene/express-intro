@@ -1,13 +1,23 @@
+import { NODE_ENV } from "../../env.js";
+
 export function loginForm() {
+    let username = '';
+    let password = '';
+
+    if(NODE_ENV === 'dev') {
+        username = 'saule';
+        password = 'saule@saule.lt';
+    }
+
     return `<h1><i class="fa fa-sign-in" aria-hidden="true"></i>Login</h1>
                 <form class="form">
                     <div class="form-row">
                         <label>Username</label>
-                        <input id="username" type="text" value="" required>
+                        <input value="${username}" id="username" type="text" value="" required>
                     </div>
                     <div class="form-row">
                         <label>Password</label>
-                        <input id="password" type="password" value="" required>
+                        <input value="${password}" id="password" type="password" value="" required>
                     </div>
                     <div class="form-row">
                         <button type="submit">Login</button>

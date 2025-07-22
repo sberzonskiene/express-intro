@@ -3,12 +3,16 @@ import { Page404 } from './pages/public/Page404.js';
 import { publicPageRouter } from './routes/publicPageRouter.js';
 import { publicApiRouter } from './routes/publicApiRouter.js';
 import { adminPageRouter } from './routes/adminPageRouter.js';
+import { cookieParser } from './middleware/cookieParser.js';
+
 
 const app = express();
 const port = 3030;
 
 app.use(express.static('public'));
 app.use(express.json());
+app.use(cookieParser);
+
 
 app.use('/', publicPageRouter);
 app.use('/', publicApiRouter);
