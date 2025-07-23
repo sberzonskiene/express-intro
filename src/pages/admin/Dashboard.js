@@ -9,7 +9,7 @@ export class PageDashboard extends PageTemplate {
     main() {
         return `
             <h1><i class="fa fa-dashcube"></i>Welcome to dashboard !!!</h1>
-            <p>User:---</p>
+            <p class="par">Username: ${this.req.user.username}</p>
             `;
     }
 }

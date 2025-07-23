@@ -19,7 +19,7 @@ export async function userData(req, res, next) {
                 ON login_tokens.user_id = users.id
             WHERE token = ?;`;
         const [results] = await connection.execute(sql, [req.cookies.loginToken]);
-
+        
         if (results.length !== 1) {
             return next();
         }
@@ -31,6 +31,6 @@ export async function userData(req, res, next) {
     } catch (error) {
         console.log(error);
     }
-
     return next();
 }
+    
