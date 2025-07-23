@@ -76,9 +76,9 @@ export async function postLogin(req, res) {
     } 
 
     const cookieParams = [
-        `loginToken=${loginTokenString}`,
+        'loginToken=' + loginTokenString,
         'domain=localhost',
-        'max-age=3600',
+        'max-age=' + COOKIE_MAX_AGE,
         'HttpOnly',
         'path=/',
         'Secure',
