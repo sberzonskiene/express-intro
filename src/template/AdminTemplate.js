@@ -1,8 +1,7 @@
-export class PageTemplate {
+export class AdminTemplate {
     constructor(req) {
         this.req = req;
         this.pageType = 'fullPage';
-        this.isAsideVisible = true;
         this.pageJS = '';
     }
 
@@ -80,10 +79,6 @@ export class PageTemplate {
         return `<script src="/js/${this.pageJS}.js" type="module"></script>`;
     }
 
-    aside() {
-        return `<aside>SONINIS MENIU</aside>`;
-    }
-
     main () {
         return `CONTENT`;
     }
@@ -95,7 +90,6 @@ export class PageTemplate {
         ${this.head()}
         <body>
             ${this.pageType === 'fullPage' ? this.header() : this.headerAuth()}
-            ${this.isAsideVisible ? this.aside() : ''}
             <main>${this.main()}</main>
             ${this.pageType === 'fullPage' ? this.footer() : this.footerAuth()}
             ${this.script()}  

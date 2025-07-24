@@ -6,8 +6,17 @@ export class PageDashboard extends PageTemplate {
         super(req);
         this.isAsideVisible = false;
         this.pageType = 'shortPage';
-    }
+    } 
     main() {
+        if (!this.req.user.isLogged) {
+            return `
+            <main>
+                <p class="par">401-reikia prisijungti!!!<p>
+                <div class="log">
+                    <a href="/">Back home</a><i class="fa fa-home"></i>
+                </div>
+            </main>`
+        }
         const cookie = this.req.user.login_token_created_at.getTime();
         const secondsLeft = Math.floor(COOKIE_MAX_AGE - (Date.now() - cookie) / 1000);
         const seconds = secondsLeft % 60;
