@@ -89,8 +89,10 @@ export async function postLogin(req, res) {
     return res
         .set({ 'Set-Cookie': cookieParams.join('; ') })
         .json({
-            status: 'succsess',
-            msg: 'Tu buvai sekmingai prijungtas prie sistemos',
+            status: 'succses',
+            msg: 'Sekmingai prisijungei prie sistemos!!!',
+            action: 'redirect',
+            href:'/admin',
         });
     }
  

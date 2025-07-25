@@ -1,22 +1,22 @@
-import { PageTemplate } from "../../template/PageTemplate.js";
 import { COOKIE_MAX_AGE } from "../../env.js";
+import { AdminTemplate } from "../../template/AdminTemplate.js";
 
-export class PageDashboard extends PageTemplate {
-    constructor(req) {
-        super(req);
-        this.isAsideVisible = false;
-        this.pageType = 'shortPage';
-    } 
+export class PageDashboard extends AdminTemplate {
     main() {
-        if (!this.req.user.isLogged) {
+        if (!this.req.user.isLoggedIn) {
             return `
             <main>
-                <p class="par">401-reikia prisijungti!!!<p>
+                <nav class="nv">
+                    <a href="/register">Register</a>
+                    <a href="/login">Login</a>
+                </nav>
+                    <p class="par">403-reikia prisijungti!!!<p>
                 <div class="log">
                     <a href="/">Back home</a><i class="fa fa-home"></i>
                 </div>
             </main>`
         }
+        
         const cookie = this.req.user.login_token_created_at.getTime();
         const secondsLeft = Math.floor(COOKIE_MAX_AGE - (Date.now() - cookie) / 1000);
         const seconds = secondsLeft % 60;
@@ -25,6 +25,9 @@ export class PageDashboard extends PageTemplate {
         return `
             <main>
                <div>
+                <nav class="nv">
+                    <a href="/admin">Dashboard</a>
+                <nav>    
                     <h1><i class="fa fa-dashcube"></i>Welcome to dashboard !!!</h1>
                     <p class="par">Username: ${this.req.user.username}</p>
                     <p class="par">Likęs sesijos laikas: ${minutes}:${seconds}</p>

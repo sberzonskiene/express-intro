@@ -2,7 +2,8 @@ export class AdminTemplate {
     constructor(req) {
         this.req = req;
         this.pageType = 'fullPage';
-        this.pageJS = '';
+        this.pageTop = '';
+        this.pageJS = '';    
     }
 
     head () {
@@ -24,13 +25,11 @@ export class AdminTemplate {
     header() {
         return `
         <header>
-                <img src="/img/logo.jpg" alt="logo">
+                <img src="/img/logo1.jpg" alt="logo">
             <nav class="nv">
                 <a href="/">Home</a>
                 <a href="/about">About</a>
-                <a href="/services">Services</a>
-                <a href="/register">Register</a>
-                <a href="/login">Login</a>
+                <a href="/services">Services</a>   
             </nav>
         </header> `;
     }
@@ -91,7 +90,7 @@ export class AdminTemplate {
         <body>
             ${this.pageType === 'fullPage' ? this.header() : this.headerAuth()}
             <main>${this.main()}</main>
-            ${this.pageType === 'fullPage' ? this.footer() : this.footerAuth()}
+            ${this.pageTop === 'fullPage' ? this.footer() : this.footerAuth()}
             ${this.script()}  
         </body>
     </html> `;
