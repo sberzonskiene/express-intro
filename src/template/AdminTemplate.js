@@ -25,7 +25,6 @@ export class AdminTemplate {
     header() {
         return `
         <header>
-                <img src="/img/logo1.jpg" alt="logo">
             <nav class="nv">
                 <a href="/">Home</a>
                 <a href="/about">About</a>
@@ -37,7 +36,6 @@ export class AdminTemplate {
     headerAuth() {
         return `
         <header>
-            <img src="/img/logo.jpg" alt="logo">
             ${this.userMenu()}
         </header> `;
     }
