@@ -32,6 +32,7 @@ export class PageDashboard extends AdminTemplate {
                     <h1><i class="fa fa-dashcube"></i>Welcome to dashboard !!!</h1>
                     <p class="par">Username: ${this.req.user.username}</p>
                     <p class="par">Likęs sesijos laikas: ${minutes}:${seconds}</p>
+                    ${this.menuBar()}
             </main>`;
     }
 }

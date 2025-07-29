@@ -48,6 +48,28 @@ export class AdminTemplate {
         </nav>`;
     }
 
+    menuBar () {
+        return`
+            <div class="menuBar">
+                <ul>
+                    <li class="nv">
+                        <a class="nav-link" aria-current="page" href="/admin">Dashboard</a>
+                    </li>
+                </ul>
+                    <h6 class="nv">
+                        <span>Products</span>
+                    </h6>
+                <ul class="nav nav-pills flex-column">
+                    <li class="nv">
+                        <a class="nav-link" aria-current="page" href="/admin/products/new">New product</a>
+                    </li>
+                    <li class="nv">
+                        <a class="nav-link" aria-current="page" href="/admin/products">All products</a>
+                    </li>
+                </ul>
+            </div>`
+    }
+
     footer() {
         return `
         <footer>
