@@ -19,6 +19,7 @@ export class AdminTemplate {
             <link rel="manifest" href="/site.webmanifest" />
             <link rel="stylesheet" href="/css/vendor/font-awesome.min.css"/>
             <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/table.css">
         </head> `;
     }
 

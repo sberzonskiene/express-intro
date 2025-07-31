@@ -57,3 +57,8 @@ footer {
 .display {
   margin-left: 5rem;
 }
+
+.btn {
+  background-color: #5592bb;
+  border-radius: 10px;
+}
