@@ -19,12 +19,19 @@ export class PageAdminProducts extends AdminTemplate {
                 </div>
             </main>`
         }
-        return `    
+
+        return `
             <main>
-             ${this.menuBar()}
+                <nav class="nv">
+                    ${this.menuBar()}
+                </nav>
+                    <div class="nv">
+                        <h1 class="display">All products</h1>
+                    </div>
             <table class="blueTable">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Title</th>
                         <th>Url</th>
                         <th>Description</th>
@@ -36,16 +43,8 @@ export class PageAdminProducts extends AdminTemplate {
                         <td>cell1_1</td>
                         <td>cell2_1</td>
                         <td>cell3_1</td>
-                    <td class="">
-                        <button class="bg-yellow">Edit</button>
-                        <button class="bg-red">Delete</button>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td>cell1_2</td>
-                        <td>cell2_2</td>
-                        <td>cell3_2</td>
-                    <td class="">
+                        <td>cell4_1</td>
+                    <td>
                         <button class="bg-yellow">Edit</button>
                         <button class="bg-red">Delete</button>
                     </td>

@@ -24,7 +24,7 @@ export class PageAdminProductsNew extends AdminTemplate {
             <main>
                 <nav class="nv">
                     ${this.menuBar()}
-                <nav>
+                </nav>
                     <div class="nv">
                         <h1 class="display">New product</h1>
                     </div>
