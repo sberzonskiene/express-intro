@@ -3,7 +3,8 @@ import { AdminTemplate } from "../../../template/AdminTemplate.js";
 
 export class PageAdminProductsNew extends AdminTemplate {
     constructor(req) {
-       super(req)   
+       super(req);
+       this.pageJS = 'new-product';   
     }
     main() {
         if (!this.req.user.isLoggedIn) {
@@ -22,6 +23,7 @@ export class PageAdminProductsNew extends AdminTemplate {
         }    
         return `
             <main>
+                <img src="/img/logo1.jpg" alt="logo">
                 <nav class="nv">
                     ${this.menuBar()}
                 </nav>
@@ -39,17 +41,10 @@ export class PageAdminProductsNew extends AdminTemplate {
                             </div>
                             <div class="form-row">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control" id="description"></textarea>
-                            </div>
-                            <div class="form-row">
-                                <label for="release_date" class="form-label">Release date</label>
-                                <input type="date" class="form-control" id="release_date">
-                            </div>
+                                <textarea class="form-control" id="description" required></textarea>
                             </div>
                             <button type="submit" class="btn">Create</button>
                         </form>
-                    </div>
-                </div>
             </main>`;
     }
 }

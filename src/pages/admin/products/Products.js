@@ -26,6 +26,7 @@ export class PageAdminProducts extends AdminTemplate {
 
         return `
             <main>
+                <img src="/img/logo1.jpg" alt="logo">
                 <nav class="nv">
                     ${this.menuBar()}
                 </nav>
