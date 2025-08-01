@@ -7,13 +7,11 @@ export function tableProducts(data) {
         <tr>
             <td>${nr++}</td>
             <td>${product.title}</td>
-            <td>${product.url_slug}</td>
-            <td>${product.desc}</td>
+            <td>${product.url}</td>
+            <td>${product.description}</td>
             <td>
-                <button class="">Edit</button>
-                <button class="bg-red">Delete</button>
                 <a class="bg-yellow" href="/admin/products/${product.url_slug}/edit">Edit</a>
-                <button data-url="${category.url_slug}" class="btn btn-danger btn-sm">Delete</button>
+                <button data-url="${product.url_slug}" class="bg-red">Delete</button>
             </td>
         </tr>`;
     }
