@@ -25,10 +25,7 @@ export class PageDashboard extends AdminTemplate {
 
         return `
             <main>
-                <img src="/img/logo1.jpg" alt="logo">
-                <nav class="nv">
-                    <a href="/admin">Dashboard</a>
-                <nav>    
+                <img src="/img/logo1.jpg" alt="logo">    
                     <h1><i class="fa fa-dashcube"></i>Welcome to dashboard !!!</h1>
                     <p class="par">Username: ${this.req.user.username}</p>
                     <p class="par">Likęs sesijos laikas: ${minutes}:${seconds}</p>
