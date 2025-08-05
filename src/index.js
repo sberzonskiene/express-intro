@@ -5,6 +5,7 @@ import { publicApiRouter } from './routes/publicApiRouter.js';
 import { adminPageRouter } from './routes/adminPageRouter.js';
 import { cookieParser } from './middleware/cookieParser.js';
 import { userData } from './middleware/userData.js';
+import { adminApiRouter } from './routes/adminApiRouter.js';
 
 
 const app = express();
@@ -17,8 +18,14 @@ app.use(userData);
 
 
 app.use('/', publicPageRouter);
-app.use('/', publicApiRouter);
-app.use('/', adminPageRouter);
+app.use('/api', publicApiRouter);
+app.use('/admin', adminPageRouter);
+app.use('/api/admin', adminApiRouter);
+
+app.use((err, req, res, next) => {
+  console.log(err);
+  return res.status(500).send('Server error');
+})
 
 app.get('*error', (req, res) => res.send(new Page404(req).render()));
 

@@ -6,6 +6,6 @@ import { PageAdminProductsNew } from '../pages/admin/products/ProductsNew.js';
 
 export const adminPageRouter = express.Router();
 
-adminPageRouter.get('/admin', (req, res) => res.send(new PageDashboard(req).render()));
-adminPageRouter.get('/admin/products', (req, res) => res.send(new PageAdminProducts(req).render()));
-adminPageRouter.get('/admin/products/new', (req, res) => res.send(new PageAdminProductsNew(req).render()));
+adminPageRouter.get('/', (req, res) => res.send(new PageDashboard(req).render()));
+adminPageRouter.get('/products', (req, res) => res.send(new PageAdminProducts(req).render()));
+adminPageRouter.get('/products/new', (req, res) => res.send(new PageAdminProductsNew(req).render()));
