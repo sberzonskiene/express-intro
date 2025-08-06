@@ -84,11 +84,11 @@ export class PageTemplate {
         return `<aside>SONINIS MENIU</aside>`;
     }
 
-    async main () {
+    main () {
         return `CONTENT`;
     }
 
-    async render() {
+    render() {
         return `
     <!DOCTYPE html>
     <html lang="en">
@@ -96,7 +96,7 @@ export class PageTemplate {
         <body>
             ${this.pageType === 'fullPage' ? this.header() : this.headerAuth()}
             ${this.isAsideVisible ? this.aside() : ''}
-            <main>${await this.main()}</main>
+            <main>${this.main()}</main>
             ${this.pageType === 'fullPage' ? this.footer() : this.footerAuth()}
             ${this.script()}  
         </body>

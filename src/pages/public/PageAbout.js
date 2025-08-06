@@ -4,7 +4,7 @@ export class PageAbout extends PageTemplate {
     constructor(req) {
         super(req);
     }
-    async main() {
+    main() {
         const links = ['About us', 'Information', 'Contact'] ;
         let linksHTML = '';
     for (const link of links) {

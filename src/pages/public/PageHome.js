@@ -5,7 +5,7 @@ export class PageHome extends PageTemplate {
         super(req);
         this.pageJS = 'main';
     }
-    async main() {
+    main() {
         return `
             <h1><i class="fa fa-home"></i>Home page</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, a doloremque accusantium necessitatibus praesentium dolorem voluptatem distinctio.</p>

@@ -9,7 +9,7 @@ export class PageLogin extends PageTemplate {
         this.pageJS = 'login';
     }
 
-    async main() {
+    main() {
         return `
         ${loginForm()}`;
     }

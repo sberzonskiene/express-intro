@@ -13,7 +13,7 @@ if (formDOM) {
             description: descriptionDOM.value,
         };
 
-        fetch('/api/admin', {
+        fetch('/api/admin/products/new', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

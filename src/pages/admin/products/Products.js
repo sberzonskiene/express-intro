@@ -7,8 +7,8 @@ export class PageAdminProducts extends AdminTemplate {
         super(req);
     }
 
-    async main() {
-        const data = await productsData;
+    main() {
+        const data = productsData;
 
         if (!this.req.user.isLoggedIn) {
             return `

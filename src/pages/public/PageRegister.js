@@ -8,7 +8,7 @@ export class PageRegister extends PageTemplate {
         this.isAsideVisible = false;
         this.pageJS = 'register';
     }
-    async main() {
+    main() {
         return `
         ${registerForm()}`
     }
