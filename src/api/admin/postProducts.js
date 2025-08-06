@@ -17,49 +17,9 @@ export async function postProducts(req, res) {
 
     const { title, url, description } = req.body;
 
-    try {
-        const sql = `SELECT * FROM products WHERE title = ? OR url_slug = ? OR description = ?;`;
-        const [response] = await connection.execute(sql, [title, url, description]);
-
-        if (response.length > 0) {
-            return res.status(400).json({
-                status: 'error',
-                msg: 'Tokia kategorija jau egzistuoja',
-            });
-        }
-    } catch (error) {
-        console.log(error);
-        return res.status(500).json({
-            status: 'error',
-            msg: 'Serverio klaida',
-        });
-    }
-
-    try {
-        const sql = `
-            INSERT INTO categories (title, url_slug, status_id, description)
-            VALUES (?, ?, 
-                (SELECT id FROM general_status WHERE name = ?),
-                ?);`;
-        const [response] = await connection.execute(sql, [title, url, description]);
-
-        if (response.affectedRows !== 1) {
-            return res.status(500).json({
-                status: 'error',
-                msg: 'Serverio klaida',
-            });
-        }
-    } catch (error) {
-        console.log(error);
-        return res.status(500).json({
-            status: 'error',
-            msg: 'Serverio klaida',
-        });
-    }
-
     return res.status(201).json({
         status: 'success',
-        msg: 'Sekmingai sukurta filmu kategorija',
+        msg: 'Sekmingai sukurtas naujas produktas',
     });
 }
 
