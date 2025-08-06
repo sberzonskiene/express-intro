@@ -41,7 +41,7 @@ export async function postProducts(req, res) {
             VALUES (?, ?, 
                 (SELECT id FROM general_status WHERE name = ?),
                 ?);`;
-        const [response] = await connection.execute(sql, [title, url, status, description]);
+        const [response] = await connection.execute(sql, [title, url, description]);
 
         if (response.affectedRows !== 1) {
             return res.status(500).json({
