@@ -1,4 +1,4 @@
-import { productsData } from "../../../data/productsData.js";
+import { getAllProducts } from "../../../db/getAllProducts.js";
 import { AdminTemplate } from "../../../template/AdminTemplate.js";
 import { tableProducts } from "../../../ui/table/tableProducts.js";
 
@@ -7,8 +7,8 @@ export class PageAdminProducts extends AdminTemplate {
         super(req);
     }
 
-    main() {
-        const data = productsData;
+    async main() {
+        const data = await getAllProducts();
 
         if (!this.req.user.isLoggedIn) {
             return `

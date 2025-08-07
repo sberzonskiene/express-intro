@@ -99,18 +99,18 @@ export class AdminTemplate {
         return `<script src="/js/${this.pageJS}.js" type="module"></script>`;
     }
 
-    main () {
+    async main () {
         return `CONTENT`;
     }
 
-    render() {
+    async render() {
         return `
     <!DOCTYPE html>
     <html lang="en">
         ${this.head()}
         <body>
             ${this.pageType === 'fullPage' ? this.header() : this.headerAuth()}
-            <main>${this.main()}</main>
+            <main>${await this.main()}</main>
             ${this.pageTop === 'fullPage' ? this.footer() : this.footerAuth()}
             ${this.script()}  
         </body>

@@ -7,7 +7,7 @@ export function tableProducts(data) {
         <tr>
             <td>${nr++}</td>
             <td>${product.title}</td>
-            <td>${product.url}</td>
+            <td>${product.url_slug}</td>
             <td>${product.description}</td>
             <td>
                 <a class="bg-yellow" href="/admin/products/${product.url_slug}/edit">Edit</a>
