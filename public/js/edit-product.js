@@ -1,5 +1,6 @@
 const formDOM = document.forms[0];
 const titleDOM = document.getElementById('title');
+const originalUrlDOM = document.getElementById('original_url');
 const urlDOM = document.getElementById('url');
 const descriptionDOM = document.getElementById('description');
 
@@ -13,8 +14,8 @@ if (formDOM) {
             description: descriptionDOM.value,
         };
 
-        fetch('/api/admin/products/new', {
-            method: 'POST',
+        fetch('/api/admin/products/' + originalUrlDOM.value, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },

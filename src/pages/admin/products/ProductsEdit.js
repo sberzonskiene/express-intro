@@ -5,7 +5,7 @@ import { getProductByUrlSlug } from "../../../db/getProductByUrlSlugToEdit.js";
 export class PageAdminProductsEdit extends AdminTemplate {
     constructor(req) {
        super(req);
-       this.pageJS = 'new-product';   
+       this.pageJS = 'edit-product';   
     }
     async main() {
         const data = await getProductByUrlSlug(this.req.params.urlSlug);
@@ -34,13 +34,14 @@ export class PageAdminProductsEdit extends AdminTemplate {
                         <h1 class="display">Edit product</h1>
                     </div>
                         <form class="form">
+                        <input value="${data[0].url_slug}" type="text" id="original_url" hidden>
                             <div class="form-row">
                                 <label for="title" class="form-label">Title</label>
-                                <input value="${data[0].title}" class="form-control" id="title" required>
+                                <input value="${data[0].title}" type="text" class="form-control" id="title" required>
                             </div>
                             <div class="form-row">
                                 <label for="url" class="form-label">Url slug</label>
-                                <input value="${data[0].url_slug}" class="form-control" id="url" required>
+                                <input value="${data[0].url_slug}" type="text" class="form-control" id="url" required>
                             </div>
                             <div class="form-row">
                                 <label for="description" class="form-label">Description</label>
