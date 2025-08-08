@@ -11,5 +11,4 @@ adminPageRouter.get('/', async (req, res) => res.send(await new PageDashboard(re
 
 adminPageRouter.get('/products', async (req, res) => res.send(await new PageAdminProducts(req).render()));
 adminPageRouter.get('/products/new', async (req, res) => res.send(await new PageAdminProductsNew(req).render()));
-adminPageRouter.get('/products/:urlSlug', async (req, res) => res.send(await new PageAdminProductsNew(req).render()));
 adminPageRouter.get('/products/:urlSlug/edit', async (req, res) => res.send(await new PageAdminProductsEdit(req).render()));
