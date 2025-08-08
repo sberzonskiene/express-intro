@@ -46,7 +46,8 @@ export class PageAdminProductsEdit extends AdminTemplate {
                                 <label for="description" class="form-label">Description</label>
                                 <textarea class="form-control" id="description" required>${data[0].description}</textarea>
                             </div>
-                            <button type="submit" class="btn">Create</button>
+                            <button type="submit" class="bg-yellow">Update</button>
+                            <button type="reset" class="btn">Reset</button>
                         </form>
             </main>`;
     }

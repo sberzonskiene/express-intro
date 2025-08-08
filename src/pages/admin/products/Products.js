@@ -5,6 +5,7 @@ import { tableProducts } from "../../../ui/table/tableProducts.js";
 export class PageAdminProducts extends AdminTemplate {
     constructor(req) {
         super(req);
+        this.pageJS = "product-list";
     }
 
     async main() {
